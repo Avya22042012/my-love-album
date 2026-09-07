@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Beautiful Memories</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                ✦ A COLLECTION OF MEMORIES ✦
+            </div>
+
+            <h1>
+                Our Beautiful
+                <span>Memories</span>
+            </h1>
+
+            <p>
+                Every picture tells a story,
+                every moment becomes a memory.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="scroll">
+                <span>SCROLL TO EXPLORE</span>
+                <div class="arrow">↓</div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- GALLERY -->
+    <main>
+
+        <section class="gallery-section">
+
+            <div class="section-heading">
+
+                <span>01 — MEMORIES</span>
+
+                <h2>
+                    Moments Worth
+                    <i>Remembering</i>
+                </h2>
+
+                <p>
+                    A collection of moments that deserve to stay forever.
+                </p>
+
+            </div>
+
+
+            <div class="gallery" id="gallery"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+
+        <button class="close" id="closeBtn">×</button>
+
+        <button class="nav prev" id="prevBtn">‹</button>
+
+        <div class="lightbox-content">
+
+            <img id="lightboxImage" src="" alt="Memory">
+
+            <div class="photo-number" id="photoNumber">
+                01 / 50
+            </div>
+
+        </div>
+
+        <button class="nav next" id="nextBtn">›</button>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-line"></div>
+
+        <p>
+            Made with <span>♥</span> and beautiful memories
+        </p>
+
+        <small>
+            © 2026 — Our Memory Album
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

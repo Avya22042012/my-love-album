@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #07070b;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* ==============================
+   BACKGROUND
+============================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -3;
+    background:
+        radial-gradient(circle at 20% 20%, #24132d 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, #101d35 0%, transparent 35%),
+        #07070b;
+}
+
+.orb {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: float 12s infinite alternate ease-in-out;
+}
+
+.orb1 {
+    background: #b46cff;
+    top: -150px;
+    left: -150px;
+}
+
+.orb2 {
+    background: #5d8cff;
+    right: -180px;
+    top: 30%;
+    animation-delay: 2s;
+}
+
+.orb3 {
+    background: #ff5fa2;
+    bottom: -200px;
+    left: 35%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(80px, -50px);
+    }
+}
+
+
+/* ==============================
+   PARTICLES
+============================== */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.1;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.5);
+    }
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: heroAppear 1.5s ease forwards;
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small-title {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(65px, 10vw, 135px);
+    font-weight: 500;
+    line-height: 0.85;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+    font-style: italic;
+    background: linear-gradient(90deg, #fff, #cba8ff, #fff);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s infinite linear;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200%;
+    }
+}
+
+.hero p {
+    margin-top: 35px;
+    color: #aaa;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.line {
+    width: 80px;
+    height: 1px;
+    background: #777;
+    margin: 35px auto;
+}
+
+.scroll {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.arrow {
+    margin-top: 12px;
+    font-size: 20px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* ==============================
+   GALLERY SECTION
+============================== */
+
+.gallery-section {
+    width: min(1400px, 92%);
+    margin: auto;
+    padding: 100px 0 150px;
+}
+
+.section-heading {
+    margin-bottom: 70px;
+}
+
+.section-heading > span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #777;
+}
+
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 6vw, 75px);
+    font-weight: 500;
+    line-height: 0.95;
+    margin-top: 18px;
+}
+
+.section-heading h2 i {
+    color: #c6a8ff;
+    font-weight: 400;
+}
+
+.section-heading p {
+    margin-top: 20px;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   MASONRY GALLERY
+============================== */
+
+.gallery {
+    columns: 4 260px;
+    column-gap: 18px;
+}
+
+.photo-card {
+    position: relative;
+    margin-bottom: 18px;
+    break-inside: avoid;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #111;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: photoReveal 0.8s forwards;
+}
+
+@keyframes photoReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition:
+        transform 0.7s cubic-bezier(.2,.7,.2,1),
+        filter 0.7s ease;
+}
+
+.photo-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0,0,0,0.75)
+    );
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+}
+
+.photo-card:hover::after {
+    opacity: 1;
+}
+
+.photo-label {
+    position: absolute;
+    left: 18px;
+    bottom: 15px;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: white;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.5s;
+}
+
+.photo-card:hover .photo-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   LIGHTBOX
+============================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 7, 0.96);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 85vw;
+    max-height: 85vh;
+    text-align: center;
+}
+
+.lightbox-content img {
+    max-width: 85vw;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+}
+
+.photo-number {
+    margin-top: 15px;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 45px;
+    font-weight: 200;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    transform: rotate(90deg);
+    color: #c9a9ff;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+    color: white;
+
+    font-size: 35px;
+    font-weight: 200;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav:hover {
+    background: white;
+    color: black;
+}
+
+.prev {
+    left: 35px;
+}
+
+.next {
+    right: 35px;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    text-align: center;
+    padding: 40px 20px 60px;
+    color: #666;
+}
+
+.footer-line {
+    width: 100px;
+    height: 1px;
+    background: #333;
+    margin: 0 auto 25px;
+}
+
+footer p {
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+footer p span {
+    color: #ff7da8;
+    font-size: 15px;
+}
+
+footer small {
+    display: block;
+    margin-top: 12px;
+    font-size: 9px;
+    color: #444;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 65px;
+        letter-spacing: -2px;
+    }
+
+    .small-title {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .gallery-section {
+        padding-top: 60px;
+    }
+
+    .gallery {
+        columns: 2 140px;
+        column-gap: 10px;
+    }
+
+    .photo-card {
+        margin-bottom: 10px;
+    }
+
+    .photo-label {
+        font-size: 7px;
+        left: 10px;
+        bottom: 10px;
+    }
+
+    .nav {
+        width: 42px;
+        height: 42px;
+        font-size: 25px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .close {
+        top: 10px;
+        right: 15px;
+    }
+
+    .lightbox-content img {
+        max-width: 90vw;
+        max-height: 75vh;
+    }
+}
