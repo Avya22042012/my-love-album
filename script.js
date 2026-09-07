@@ -28,7 +28,7 @@ for (let i = 1; i <= totalPhotos; i++) {
 
     const image = document.createElement("img");
 
-    image.src = `images/photo${i}.jpg`;
+    image.src = `photo${i}.jpg`;
 
     image.alt = `Beautiful Memory ${i}`;
 
@@ -69,7 +69,7 @@ function showPhoto() {
     const photo = currentPhoto + 1;
 
     lightboxImage.src =
-        `images/photo${photo}.jpg`;
+        `photo${photo}.jpg`;
 
     photoNumber.textContent =
         `${String(photo).padStart(2, "0")} / ${totalPhotos}`;
